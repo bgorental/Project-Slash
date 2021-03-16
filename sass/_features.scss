@@ -1,0 +1,54 @@
+.features{
+
+    @supports(display:grid){
+        margin: 15rem 0;
+        grid-column: center-start / center-end;
+    
+        display: grid;
+        // grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-gap: 6rem;
+        align-items: start;
+    }
+   
+
+    @media only screen and (max-width: $bp-smallest){
+        margin: 8rem 0; 
+    }
+
+    @media only screen and (max-width: $bp-smallest-1){
+        margin: 5rem 0; 
+    }
+
+}
+
+.feature{
+
+    float: left;
+    width: 33.33%;
+    margin-bottom: 6rem;
+
+    @supports(display:grid){
+      width: auto;
+      margin-bottom: 0;   
+      /*some things are rejected by grids and flex, floats, display: inline-block, table-cell, vertical-align so we didn't cancle float here,
+       bcoz anyways grid will reject it.*/
+    }
+
+    &-icon{
+        width:4.5rem;
+        height:4.5rem;
+        fill: $color-primary;
+        grid-row: 1 / span 2;
+        transform: translateY(-1rem);
+    }
+
+    &-text{
+        font-size: 1.7rem;
+    }
+
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-column-gap: 2.5rem;
+    grid-row-gap: 1.5rem;
+}
